@@ -13,15 +13,16 @@ module "keyvault" {
 }
 
 module "acr" {
-  source               = "./modules/acr"
-  acr_name             = local.acr_name
-  location             = azurerm_resource_group.rg.location
-  resource_group_name  = azurerm_resource_group.rg.name
-  task_name            = var.acr_task_name
-  context_path         = module.storage.blob_url
-  context_access_token = module.storage.sas_token
-  image_names          = var.acr_image_names
-  tags                 = var.tags
+  source                   = "./modules/acr"
+  acr_name                 = local.acr_name
+  location                 = azurerm_resource_group.rg.location
+  resource_group_name      = azurerm_resource_group.rg.name
+  task_name                = var.acr_task_name
+  trigger_task_on_creation = true
+  context_path             = module.storage.blob_url
+  context_access_token     = module.storage.sas_token
+  image_names              = var.acr_image_names
+  tags                     = var.tags
 
   depends_on = [module.storage]
 }
@@ -77,7 +78,7 @@ module "aca" {
   acr_id               = module.acr.acr_id
   acr_server           = module.acr.acr_login_server
   key_vault_id         = module.keyvault.id
-  container_image_name = var.container_image_name
+  container_image_name = "${var.container_image_name}:${var.image_tag}"
   tags                 = var.tags
 
   container_secrets = [
