@@ -47,7 +47,7 @@ variable "archive_output_path" {
 variable "redis_image" {
   description = "Redis Docker image to use."
   type        = string
-  default     = "mcr.microsoft.com/oss/bitnami/redis:latest"
+  default     = "mcr.microsoft.com/mirror/docker/library/redis:latest"
 }
 
 variable "redis_hostname_secret_name" {
