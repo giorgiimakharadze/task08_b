@@ -80,6 +80,12 @@ variable "aks_default_node_pool_vm_size" {
   default     = "Standard_B2s"
 }
 
+variable "aks_default_node_pool_os_disk_type" {
+  description = "OS disk type for the default AKS node pool."
+  type        = string
+  default     = "Managed"
+}
+
 variable "container_image_name" {
   description = "Name of the container image to deploy."
   type        = string

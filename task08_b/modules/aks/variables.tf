@@ -33,6 +33,12 @@ variable "default_node_pool_vm_size" {
   description = "Node Pool VM Size"
 }
 
+variable "default_node_pool_os_disk_type" {
+  type        = string
+  description = "Node Pool OS Disk Type"
+  default     = "Managed"
+}
+
 variable "tags" {
   type        = map(string)
   description = "Tags"

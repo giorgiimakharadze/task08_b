@@ -52,17 +52,18 @@ module "aci_redis" {
 }
 
 module "aks" {
-  source                       = "./modules/aks"
-  aks_name                     = local.aks_name
-  location                     = azurerm_resource_group.rg.location
-  resource_group_name          = azurerm_resource_group.rg.name
-  dns_prefix                   = local.aks_name
-  default_node_pool_name       = var.aks_default_node_pool_name
-  default_node_pool_node_count = var.aks_default_node_pool_node_count
-  default_node_pool_vm_size    = var.aks_default_node_pool_vm_size
-  key_vault_id                 = module.keyvault.id
-  acr_id                       = module.acr.acr_id
-  tags                         = var.tags
+  source                         = "./modules/aks"
+  aks_name                       = local.aks_name
+  location                       = azurerm_resource_group.rg.location
+  resource_group_name            = azurerm_resource_group.rg.name
+  dns_prefix                     = local.aks_name
+  default_node_pool_name         = var.aks_default_node_pool_name
+  default_node_pool_node_count   = var.aks_default_node_pool_node_count
+  default_node_pool_vm_size      = var.aks_default_node_pool_vm_size
+  default_node_pool_os_disk_type = var.aks_default_node_pool_os_disk_type
+  key_vault_id                   = module.keyvault.id
+  acr_id                         = module.acr.acr_id
+  tags                           = var.tags
 
   depends_on = [module.keyvault, module.acr]
 }
