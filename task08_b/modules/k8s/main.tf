@@ -39,7 +39,7 @@ resource "kubectl_manifest" "service" {
 }
 
 
-data "kubernetes_service" "app_service" {
+data "kubernetes_service_v1" "app_service" {
   metadata {
     name = var.service_name
   }
