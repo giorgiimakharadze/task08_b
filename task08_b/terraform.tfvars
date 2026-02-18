@@ -31,5 +31,5 @@ redis_password_secret_name = "redis-password"
 container_image_name = "cmtr-2lfxdvp4-mod8b-app"
 
 # K8s
-k8s_service_name = "redis-flask-app"
+k8s_service_name = "redis-flask-app-service"
 image_tag        = "latest"
