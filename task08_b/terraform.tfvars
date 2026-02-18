@@ -1,5 +1,5 @@
 resources_name_prefix = "cmtr-2lfxdvp4-mod8b"
-location              = "centralus"
+location              = "eastus"
 
 tags = {
   Creator = "giorgi_makharadze@epam.com"

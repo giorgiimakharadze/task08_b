@@ -20,6 +20,9 @@ resource "azurerm_kubernetes_cluster" "aks" {
     file_driver_enabled = true
     disk_driver_enabled = true
   }
+  key_vault_secrets_provider {
+    secret_rotation_enabled = true
+  }
 }
 
 resource "azurerm_role_assignment" "acr_pull" {
