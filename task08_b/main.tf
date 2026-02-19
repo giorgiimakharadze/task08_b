@@ -80,6 +80,7 @@ module "aca" {
   key_vault_id         = module.keyvault.id
   container_image_name = "${var.container_image_name}:${var.image_tag}"
   tags                 = var.tags
+  target_port          = 8080
 
   container_secrets = [
     {
